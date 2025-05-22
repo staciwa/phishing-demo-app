@@ -3,7 +3,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 const apiRoutes = require("./src/routes/api");
 const mongoose = require("mongoose");
-const Credential = require("./src/models/Credential");
+const Credential = require("./src/models/credential");
 
 dotenv.config();
 
