@@ -5,32 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zaloguj się | LinkedIn</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="login-container">
-      <h1>Zaloguj się do LinkedIn</h1>
-      <form id="loginForm">
-        <input
-          type="text"
-          id="email"
-          name="email"
-          placeholder="Email lub telefon"
-          required
-        />
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Hasło"
-          required
-        />
-        <input type="submit" value="Zaloguj się" />
-      </form>
-      <p><a href="#">Nie pamiętasz hasła?</a></p>
+    <div class="main-container">
+      <header>
+        <div class="logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 84 21"
+            fill="none"
+            class="linkedin-logo"
+          >
+            <path
+              d="M12.5 2.25C6.45 2.25 1.5 7.2 1.5 13.25C1.5 19.3 6.45 24.25 12.5 24.25C18.55 24.25 23.5 19.3 23.5 13.25C23.5 7.2 18.55 2.25 12.5 2.25Z"
+              fill="#0A66C2"
+            ></path>
+            <path
+              d="M76.5 3.25H65.5C64.4 3.25 63.5 4.15 63.5 5.25V23.25C63.5 24.35 64.4 25.25 65.5 25.25H76.5C77.6 25.25 78.5 24.35 78.5 23.25V5.25C78.5 4.15 77.6 3.25 76.5 3.25Z"
+              fill="#0A66C2"
+            ></path>
+            <path
+              d="M41 10.25C39.14 10.25 37.5 11.09 36.5 12.41V10.75H30.5V25.75H36.5V17.75C36.5 15.75 37.5 14.75 39.5 14.75C41.5 14.75 42 15.75 42 17.75V25.75H48V16.25C48 12.75 46.5 10.25 41 10.25Z"
+              fill="#0A66C2"
+            ></path>
+            <path d="M27.5 10.75H21.5V25.75H27.5V10.75Z" fill="#0A66C2"></path>
+            <path
+              d="M24.5 3.75C22.57 3.75 21 5.32 21 7.25C21 9.18 22.57 10.75 24.5 10.75C26.43 10.75 28 9.18 28 7.25C28 5.32 26.43 3.75 24.5 3.75Z"
+              fill="#0A66C2"
+            ></path>
+          </svg>
+        </div>
+      </header>
+
+      <div class="login-container">
+        <h1>Zaloguj się</h1>
+        <p class="subtitle">
+          Bądź na bieżąco z informacjami o Twoim świecie zawodowym
+        </p>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Adres e-mail lub numer telefonu"
+              required
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Hasło"
+              required
+              class="form-control"
+            />
+          </div>
+
+          <p class="forgot-password"><a href="#">Nie pamiętasz hasła?</a></p>
+
+          <div class="remember-me">
+            <input type="checkbox" id="remember" name="remember" />
+            <label for="remember">Nie wylogowuj mnie</label>
+          </div>
+
+          <button type="submit" class="btn-primary">Zaloguj się</button>
+        </form>
+
+      <div class="signup-prompt">
+        <p>Jesteś tu nowy na LinkedIn? <a href="#">Dołącz teraz</a></p>
+      </div>
+
+      <footer>
+        <div class="footer-content">
+          <img
+            src="https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Logo.wine.svg"
+            alt="LinkedIn"
+            width="56"
+          />
+          <span>2025</span>
+          <a href="#">Umowa użytkownika</a>
+          <a href="#">Polityka prywatności</a>
+          <a href="#">Wytyczne dla społeczności</a>
+          <a href="#">Polityka cookies</a>
+          <a href="#">Prawa autorskie</a>
+          <a href="#">Opcje reklam</a>
+        </div>
+      </footer>
     </div>
     <script src="js/script.js"></script>
   </body>

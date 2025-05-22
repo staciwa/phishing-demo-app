@@ -1,56 +1,221 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+}
+
+body {
   background-color: #f3f2ef;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  padding-top: 30px;
+  color: rgba(0, 0, 0, 0.9);
 }
+
+.main-container {
+  width: 100%;
+  max-width: 1128px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.logo {
+  width: 135px;
+  height: 34px;
+}
+
+.linkedin-logo {
+  width: 100%;
+  height: 100%;
+  fill: #0a66c2;
+}
+
 .login-container {
   background-color: white;
-  padding: 20px;
+  padding: 24px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  margin: 0 auto;
 }
-.login-container h1 {
-  color: #0077b5;
-  font-size: 24px;
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.subtitle {
+  font-size: 14px;
   margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.9);
 }
-.login-container input[type="text"],
-.login-container input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+
+.form-group {
+  margin-bottom: 12px;
 }
-.login-container input[type="submit"] {
-  background-color: #0077b5;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
+
+.form-control {
   width: 100%;
-  cursor: pointer;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
   font-size: 16px;
+  transition: border 0.3s;
+  outline: none;
 }
-.login-container input[type="submit"]:hover {
-  background-color: #005f8d;
+
+.form-control:focus {
+  border-color: #0a66c2;
+  box-shadow: 0 0 0 1px #0a66c2;
 }
-.login-container a {
-  color: #0077b5;
+
+.forgot-password {
+  text-align: left;
+  margin: 16px 0;
+}
+
+.forgot-password a {
+  color: #0a66c2;
+  font-weight: 500;
   text-decoration: none;
   font-size: 14px;
 }
-#result {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f9f9f9;
+
+.forgot-password a:hover {
+  text-decoration: underline;
 }
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.remember-me input {
+  margin-right: 8px;
+}
+
+.remember-me label {
+  font-size: 14px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background-color: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #084482;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 24px 0;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.separator::before {
+  margin-right: 16px;
+}
+
+.separator::after {
+  margin-left: 16px;
+}
+
+.btn-google,
+.btn-apple {
+  width: 100%;
+  padding: 10px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+
+.btn-google:hover,
+.btn-apple:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.signup-prompt {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.signup-prompt a {
+  color: #0a66c2;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.signup-prompt a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.footer-content a {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  color: #0a66c2;
+  text-decoration: underline;
+}
+
+.language-selector select {
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
