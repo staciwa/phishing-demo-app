@@ -72,11 +72,32 @@ h1 {
   font-size: 16px;
   transition: border 0.3s;
   outline: none;
+  padding-right: 90px; /* Dodatkowe miejsce na przycisk */
 }
 
 .form-control:focus {
   border-color: #0a66c2;
   box-shadow: 0 0 0 1px #0a66c2;
+}
+
+.password-field {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 1px solid #0a66c2;
+  border-radius: 18px;
+  padding: 4px 16px;
+  color: #0a66c2;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 .forgot-password {

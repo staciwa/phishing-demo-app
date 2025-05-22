@@ -23,3 +23,20 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleButton = document.getElementById("togglePassword");
+  const passwordInput = document.getElementById("password");
+
+  if (toggleButton && passwordInput) {
+    toggleButton.addEventListener("click", function () {
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleButton.textContent = "Ukryj";
+      } else {
+        passwordInput.type = "password";
+        toggleButton.textContent = "Pokaż";
+      }
+    });
+  }
+});
+
