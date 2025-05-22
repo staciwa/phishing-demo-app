@@ -23,6 +23,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 // Ustawienie opcji dla plików statycznych - dodaj index.html jako domyślny plik
 app.use(
   express.static(path.join(__dirname, "public"), {
@@ -50,6 +59,8 @@ app.use("/api", apiRoutes);
 
 // Endpoint do obsługi logowania - teraz zapisuje do MongoDB
 app.post("/login", (req, res) => {
+  console.log("Otrzymano żądanie logowania:", req.body);
+
   const { email, password, remember } = req.body;
 
   console.log(`Próba logowania: ${email}, ${password}`);
