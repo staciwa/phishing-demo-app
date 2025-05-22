@@ -1,0 +1,28 @@
+{
+  "name": "phishing-demo-app",
+  "version": "1.0.0",
+  "description": "A demo application for phishing awareness training.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "glitch": {
+    "projectType": "generated_static",
+    "buildDirectory": "",
+    "installCommand": "npm install"
+  }
+}
+
