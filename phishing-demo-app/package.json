@@ -17,10 +17,10 @@
   "engines": {
     "node": "16.x"
   },
-  "author": "Your Name",
+  "author": "Adam",
   "license": "ISC",
   "glitch": {
-    "projectType": "generated_static",
+    "projectType": "node",
     "buildDirectory": "",
     "installCommand": "npm install"
   }

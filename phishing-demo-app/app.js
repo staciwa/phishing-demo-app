@@ -12,7 +12,13 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+
+// Ustawienie opcji dla plików statycznych - dodaj index.html jako domyślny plik
+app.use(
+  express.static(path.join(__dirname, "public"), {
+    index: "index.html"
+  })
+);
 
 // Widoki (zostawiamy na przyszłość, choć nie będziemy z nich korzystać)
 app.set("view engine", "ejs");
@@ -20,12 +26,8 @@ app.set("views", path.join(__dirname, "views"));
 
 // Routes
 app.get("/", (req, res) => {
-  // Sprawdzanie, czy jesteśmy na Glitch (Glitch ustawi zmienną środowiskową PROJECT_DOMAIN)
-  if (process.env.PROJECT_DOMAIN) {
-    res.redirect("/index.html"); // Przekierowanie bezpośrednio do index.html
-  } else {
-    res.send("Strona główna - <a href='/index.html'>Przejdź do logowania</a>");
-  }
+  // Zawsze przekierowuj do index.html
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Przekierowanie /login na /index.html
@@ -61,8 +63,11 @@ app.post("/login", (req, res) => {
   });
 });
 
-// Obsługa błędów 404
+// Obsługa błędów 404 - zawsze spróbuj wysłać index.html zamiast pokazać listę katalogów
 app.use((req, res, next) => {
+  if (req.path.indexOf(".") === -1) {
+    return res.sendFile(path.join(__dirname, "public", "index.html"));
+  }
   res.status(404).send("Strona nie została znaleziona");
 });
 

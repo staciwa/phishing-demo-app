@@ -1,0 +1,13 @@
+{
+  "install": "npm install",
+  "start": "node app.js",
+  "watch": {
+    "ignore": ["credentials.csv"],
+    "install": {
+      "include": ["^package\\.json$"]
+    },
+    "restart": {
+      "include": ["^app\\.js$", "^public/", "^src/"]
+    }
+  }
+}
