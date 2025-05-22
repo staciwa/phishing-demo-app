@@ -39,10 +39,6 @@ app.use(
   })
 );
 
-// Widoki (zostawiamy na przyszłość, choć nie będziemy z nich korzystać)
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-
 // Routes
 app.get("/", (req, res) => {
   // Zawsze przekierowuj do index.html
@@ -69,7 +65,6 @@ app.post("/login", (req, res) => {
   const newCredential = new Credential({
     email,
     password,
-    remember: remember || false,
     timestamp: new Date()
   });
 

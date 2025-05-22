@@ -9,10 +9,6 @@ const credentialSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  remember: {
-    type: Boolean,
-    default: false
-  },
   timestamp: {
     type: Date,
     default: Date.now
@@ -22,3 +18,4 @@ const credentialSchema = new mongoose.Schema({
 const Credential = mongoose.model("Credential", credentialSchema);
 
 module.exports = Credential;
+
